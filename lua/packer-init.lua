@@ -25,6 +25,9 @@ packer.init {
             update = "pull --ff-only --progress --rebase=true",
         },
     },
+    snapshot_path = "~/.local/dotfiles/nvim/cache/packer.nvim",
+    package_root = "~/.local/dotfiles/nvim/site/pack",
+    compile_path = "~/.local/dotfiles/nvim/plugin/packer_compiled.lua",
     max_jobs = 50,
     display = {
         open_fn = function()
