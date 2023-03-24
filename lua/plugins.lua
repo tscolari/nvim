@@ -40,6 +40,10 @@ packer.startup {
         use 'navarasu/onedark.nvim'
         use 'sainnhe/gruvbox-material'
 
+        use 'christoomey/vim-tmux-navigator'
+        use 'wincent/ferret'
+        use 'morhetz/gruvbox'
+
         -- these don't switch the whole background sometimes...
         use 'RRethy/nvim-base16'
 
@@ -66,7 +70,7 @@ packer.startup {
             requires = {
                 { 'nvim-lua/popup.nvim' },
                 { 'nvim-lua/plenary.nvim' },
-                { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+                { 'nvim-telescope/telescope-fzf-native.nvim',  run = 'make' },
                 { 'nvim-telescope/telescope-file-browser.nvim' },
             },
             config = function() require('plugins.telescope') end,

@@ -8,6 +8,13 @@ vim.g.VM_leader = { default = '<space>v', visual = '<space>v', buffer = 'z' }
 
 vim.keymap.set('n', '-', [[:lua require('lir.float').init()<cr>]], { silent = true })
 
+-- splits
+vim.keymap.set('n', 'vv', '<C-w>v', { silent = true })
+vim.keymap.set('n', 'ss', '<C-w>s', { silent = true })
+
+-- code navigation
+vim.keymap.set('n', '<leader>.', ':GoAlt<cr>')
+
 -- close buffer
 vim.keymap.set('n', '<M-q>', [[:Bdelete<cr>]], { silent = true })
 
@@ -42,7 +49,6 @@ vim.keymap.set('n', '<M-n>', [[:Lspsaga diagnostic_jump_next<cr>]], { silent = t
 -- Full redraw finxing syntax highlight bugs
 vim.keymap.set('n', '<c-l>', [[:nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>]], { silent = true })
 
-
 -- Mimic behavior from D, C
 vim.keymap.set('n', 'Y', 'y$')
 
@@ -52,6 +58,9 @@ vim.keymap.set('v', '<', '<gv')
 
 vim.keymap.set('v', '<Tab>', '>gv')
 vim.keymap.set('v', '<S-Tab>', '<gv')
+
+-- Don't replace buffer when pasting on visual
+vim.keymap.set('v', 'p', '"_dP')
 
 -- Save on enter
 vim.keymap.set('n', '<CR>', function()

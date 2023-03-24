@@ -33,6 +33,7 @@ local modules = {
     'diagnostics',
     'paste',
     'lang',
+    'spelling',
 }
 
 for i = 1, #modules, 1 do
