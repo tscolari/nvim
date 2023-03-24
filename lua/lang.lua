@@ -48,17 +48,17 @@ lspconfig.util.default_config = vim.tbl_extend(
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
-  underline = true,
-  virtual_text = {
-    spacing = 4,
-    format = function(diagnostic)
-      -- Only show the first line with virtualtext.
-      return string.gsub(diagnostic.message, '\n.*', '')
-    end,
-  },
-  signs = true,
-  update_in_insert = false,
-}
+    underline = true,
+    virtual_text = {
+      spacing = 4,
+      format = function(diagnostic)
+        -- Only show the first line with virtualtext.
+        return string.gsub(diagnostic.message, '\n.*', '')
+      end,
+    },
+    signs = true,
+    update_in_insert = false,
+  }
 )
 
 lspkind.init()
@@ -113,13 +113,13 @@ lspconfig.rust_analyzer.setup({
 if not lspconfig.emmet_ls then
   configs.emmet_ls = {
     default_config = {
-      cmd = { 'emmet-ls', '--stdio' };
-      filetypes = { 'html', 'css', 'blade', 'javascriptreact', 'javascript.jsx' };
+      cmd = { 'emmet-ls', '--stdio' },
+      filetypes = { 'html', 'css', 'blade', 'javascriptreact', 'javascript.jsx' },
       root_dir = function()
         return vim.loop.cwd()
-      end;
-      settings = {};
-    };
+      end,
+      settings = {},
+    },
   }
 end
 lspconfig.emmet_ls.setup({
@@ -169,7 +169,7 @@ lspconfig.gopls.setup {
 
 -- Terraform
 require 'lspconfig'.terraformls.setup {
-  filetypes = { 'terraform', 'tf' };
+  filetypes = { 'terraform', 'tf' },
 }
 
 -- Docker
