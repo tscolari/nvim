@@ -1,6 +1,8 @@
 local execute = vim.api.nvim_command
 local fn = vim.fn
 
+local utils = require('utils')
+
 local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -25,9 +27,9 @@ packer.init {
             update = "pull --ff-only --progress --rebase=true",
         },
     },
-    snapshot_path = "~/.local/dotfiles/nvim/cache/packer.nvim",
-    package_root = "~/.local/dotfiles/nvim/site/pack",
-    compile_path = "~/.local/dotfiles/nvim/plugin/packer_compiled.lua",
+    snapshot_path = utils.join_paths(os.getenv("HOME"), ".local/dotfiles/nvim/cache/packer.nvim"),
+    package_root = utils.join_paths(os.getenv("HOME"), ".local/dotfiles/nvim/site/pack"),
+    compile_path = utils.join_paths(os.getenv("HOME"), ".local/dotfiles/nvim/plugin/packer_compiled.lua"),
     max_jobs = 50,
     display = {
         open_fn = function()
