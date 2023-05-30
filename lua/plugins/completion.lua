@@ -25,30 +25,6 @@ cmp.setup({
       vim.fn["vsnip#anonymous"](args.body)
     end,
   },
-  mapping = {
-    ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-
-    ['<Tab>'] = next,
-    ['<C-n>'] = next,
-
-    ["<S-Tab>"] = prev,
-    ["<C-p>"] = prev,
-
-    ['<C-j>'] = cmp.mapping(function(fallback)
-      if vim.fn['vsnip#available']() == 1 then
-        vim.fn.feedkeys(t('<Plug>(vsnip-expand-or-jump)'), '')
-      else
-        fallback()
-      end
-    end, { 'i', 's' }),
-    ['<C-k>'] = cmp.mapping(function(fallback)
-      if vim.fn['vsnip#available']() == 1 then
-        vim.fn.feedkeys(t('<Plug>(vsnip-jump-prev)'), '')
-      else
-        fallback()
-      end
-    end, { 'i', 's' }),
-  },
   sources = {
     { name = 'nvim_lsp' },
     { name = 'nvim_lua' },
