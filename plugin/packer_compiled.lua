@@ -1,1 +1,0 @@
-/home/tscolari/.local/share/nvim/plugin/packer_compiled.lua
