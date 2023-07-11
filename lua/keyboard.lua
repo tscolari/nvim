@@ -14,6 +14,7 @@ vim.keymap.set('n', 'ss', '<C-w>s', { silent = true })
 
 -- code navigation
 vim.keymap.set('n', '<leader>.', ':GoAlt<cr>')
+vim.keymap.set('n', '\\', ':noh<return>')
 
 -- close buffer
 vim.keymap.set('n', '<M-q>', [[:Bdelete<cr>]], { silent = true })
