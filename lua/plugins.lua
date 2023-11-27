@@ -215,16 +215,16 @@ packer.startup {
             config = function() require('plugins.lir') end,
         }
 
-        use 'windwp/nvim-spectre'
+        -- use 'windwp/nvim-spectre'
         use {
             'karb94/neoscroll.nvim',
             config = function() require('neoscroll').setup() end,
         }
         use 'sindrets/diffview.nvim'
-        use {
-            'Pocco81/TrueZen.nvim',
-            config = function() require('plugins/truezen') end,
-        }
+        -- use {
+        --     'Pocco81/TrueZen.nvim',
+        --     config = function() require('plugins/truezen') end,
+        -- }
         use {
             'nvim-neotest/neotest',
             requires = {
@@ -304,7 +304,7 @@ packer.startup {
             ft = 'cucumber',
         }
         use 'PotatoesMaster/i3-vim-syntax'
-        use 'cappyzawa/starlark.vim'
+        -- use 'cappyzawa/starlark.vim'
         use {
             'mattn/emmet-vim',
             config = function()
