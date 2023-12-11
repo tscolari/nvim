@@ -215,7 +215,7 @@ packer.startup {
             config = function() require('plugins.lir') end,
         }
 
-        -- use 'windwp/nvim-spectre'
+        use 'windwp/nvim-spectre'
         use {
             'karb94/neoscroll.nvim',
             config = function() require('neoscroll').setup() end,
