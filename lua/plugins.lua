@@ -221,10 +221,6 @@ packer.startup {
             config = function() require('neoscroll').setup() end,
         }
         use 'sindrets/diffview.nvim'
-        -- use {
-        --     'Pocco81/TrueZen.nvim',
-        --     config = function() require('plugins/truezen') end,
-        -- }
         use {
             'nvim-neotest/neotest',
             requires = {
