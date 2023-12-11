@@ -229,6 +229,8 @@ packer.startup {
                 'nvim-neotest/neotest-go',
                 'haydenmeade/neotest-jest',
                 'mfussenegger/nvim-dap',
+                'theHamsta/nvim-dap-virtual-text',
+                'rcarriga/nvim-dap-ui',
             },
             config = function() require('plugins/test') end,
         }
