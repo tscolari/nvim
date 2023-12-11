@@ -242,7 +242,7 @@ packer.startup {
         use 'bronson/vim-trailing-whitespace'
         use 'junegunn/vim-easy-align'
         use 'kopischke/vim-fetch'
-        use 'kopischke/vim-stay'
+        -- use 'kopischke/vim-stay'
         use 'liuchengxu/vista.vim'
         use 'machakann/vim-swap'
         use 'matze/vim-move'
