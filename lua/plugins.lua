@@ -311,6 +311,12 @@ packer.startup {
                 vim.g.user_emmet_mode = 'nv'
             end,
         }
+
+        -- Github Copilot
+        use {
+            'github/copilot.vim',
+            config = function() require('plugins.copilot') end,
+        }
     end,
 }
 
