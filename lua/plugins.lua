@@ -27,6 +27,12 @@ packer.startup {
             config = function() require('impatient') end,
         }
 
+        -- Github Copilot
+        use {
+            'github/copilot.vim',
+            config = function() require('plugins.copilot') end,
+        }
+
         -- drop in replacement for filetype.vim
         use 'nathom/filetype.nvim'
 
