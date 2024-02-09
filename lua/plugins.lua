@@ -168,10 +168,11 @@ packer.startup {
                 require('go').setup({
                     lsp_keymaps = false,
                 })
-                vim.api.nvim_exec([[
-                    autocmd BufWritePre *.go :silent! lua require('go.format').goimport()
-                ]], false)
             end,
+        }
+
+        use {
+            'ray-x/guihua.lua'
         }
 
         use {
