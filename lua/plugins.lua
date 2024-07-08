@@ -84,10 +84,17 @@ packer.startup {
         }
 
         use {
+            'nvimdev/lspsaga.nvim',
+            after = 'nvim-lspconfig',
+            config = function()
+                require('lspsaga').setup({})
+            end,
+        }
+
+        use {
             'lukas-reineke/lsp-format.nvim',
             'neovim/nvim-lspconfig',
             'folke/lsp-colors.nvim',
-            'tami5/lspsaga.nvim',
             'williamboman/nvim-lsp-installer',
             'folke/trouble.nvim',
             'onsails/lspkind-nvim',
@@ -225,6 +232,7 @@ packer.startup {
         use {
             'nvim-neotest/neotest',
             requires = {
+                'nvim-neotest/nvim-nio',
                 'vim-test/vim-test',
                 'nvim-neotest/neotest-vim-test',
                 'nvim-neotest/neotest-go',
