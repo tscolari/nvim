@@ -9,3 +9,8 @@ require("neotest").setup({
     require("neotest-vim-test")({ ignore_filetypes = { "go" } }),
   }
 })
+
+require('telescope').load_extension('dap')
+
+vim.fn.sign_define('DapBreakpoint', { text = '🟥', texthl = '', linehl = '', numhl = '' })
+vim.fn.sign_define('DapStopped', { text = '▶️', texthl = '', linehl = '', numhl = '' })

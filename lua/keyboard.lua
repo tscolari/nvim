@@ -176,6 +176,20 @@ wk.add({
     { '<leader>sp', require('spectre').open,             desc = 'Search & Replace' },
 })
 
+wk.add({
+    { '<leader>d',  group = "debug" },
+    { '<leader>dt', ':GoDebug --test<cr>',           desc = 'Debug Test' },
+    { '<leader>dr', ':GoDebug --restart<cr>',        desc = 'Restart' },
+    { '<leader>dq', ':GoDebug --stop<cr>',           desc = 'Quit' },
+    { '<leader>dd', ':GoDebug --file<cr>',           desc = 'Display File' },
+    { '<leader>dc', require 'dap'.continue,          desc = 'Continue' },
+    { '<leader>dn', require 'dap'.step_over,         desc = 'Next' },
+    { '<leader>ds', require 'dap'.step_into,         desc = 'Step Into' },
+    { '<leader>do', require 'dap'.step_out,          desc = 'Step Out' },
+    { '<leader>db', require 'dap'.toggle_breakpoint, desc = 'Toggle Breakpoint' },
+})
+
+
 
 wk.add({
     { '<leader>t',  group = "testing" },

@@ -47,7 +47,7 @@ packer.startup {
         -- these don't switch the whole background sometimes...
         use 'RRethy/nvim-base16'
 
-        use 'kyazdani42/nvim-web-devicons'
+        use 'nvim-tree/nvim-web-devicons'
         use {
             'hoob3rt/lualine.nvim',
             config = function() require('plugins.lualine') end,
@@ -239,6 +239,7 @@ packer.startup {
                 'nvim-neotest/neotest-go',
                 'nvim-neotest/neotest-vim-test',
                 'nvim-neotest/nvim-nio',
+                'nvim-telescope/telescope-dap.nvim',
                 'rcarriga/nvim-dap-ui',
                 'theHamsta/nvim-dap-virtual-text',
                 'vim-test/vim-test',
