@@ -55,6 +55,8 @@ packer.startup {
 
         use 'nvim-lua/popup.nvim'
 
+        use 'echasnovski/mini.nvim'
+
         use {
             'antoinemadec/FixCursorHold.nvim',
             event = { 'BufRead', 'BufNewFile' },
@@ -232,14 +234,14 @@ packer.startup {
         use {
             'nvim-neotest/neotest',
             requires = {
-                'nvim-neotest/nvim-nio',
-                'vim-test/vim-test',
-                'nvim-neotest/neotest-vim-test',
-                'nvim-neotest/neotest-go',
                 'haydenmeade/neotest-jest',
                 'mfussenegger/nvim-dap',
-                'theHamsta/nvim-dap-virtual-text',
+                'nvim-neotest/neotest-go',
+                'nvim-neotest/neotest-vim-test',
+                'nvim-neotest/nvim-nio',
                 'rcarriga/nvim-dap-ui',
+                'theHamsta/nvim-dap-virtual-text',
+                'vim-test/vim-test',
             },
             config = function() require('plugins/test') end,
         }
