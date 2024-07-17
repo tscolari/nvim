@@ -141,6 +141,7 @@ require('nvim-treesitter.configs').setup {
     "scala",
     "scheme",
     "scss",
+    "sql",
     "svelte",
     "swift",
     "teal",
