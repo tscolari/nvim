@@ -230,8 +230,17 @@ require 'lspconfig'.yamlls.setup {
 vim.api.nvim_exec([[
   autocmd BufWritePre *.lua lua vim.lsp.buf.format()
   autocmd BufRead,BufNewFile *.tf,*.tfvars set filetype=terraform
+  autocmd BufRead,BufNewFile *.sql set filetype=sql
   autocmd BufWritePre *.tfvars lua vim.lsp.buf.format { async = true }
   autocmd BufWritePre *.tf lua vim.lsp.buf.format { async = true }
   autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll
   autocmd BufWritePre *.go :silent! lua require('go.format').goimport()
 ]], false)
+
+require("filetype").setup({
+    overrides = {
+        extensions = {
+            sql = "sql",
+        },
+      },
+})
