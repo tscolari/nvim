@@ -41,7 +41,6 @@ packer.startup {
         use 'sainnhe/gruvbox-material'
 
         use 'christoomey/vim-tmux-navigator'
-        use 'wincent/ferret'
         use 'morhetz/gruvbox'
 
         -- these don't switch the whole background sometimes...

@@ -146,7 +146,6 @@ wk.add({
     { '<leader>ha', vgit.toggle_authorship_code_lens, desc = 'Toggle authors' },
 })
 
-vim.keymap.del('n', '<leader>l') -- Ferret's :Lack command
 wk.add({
     { '<leader>l',  group = "language-server" },
     { '<leader>la', ':Lspsaga code_action<cr>',               desc = 'Code Action' },
@@ -168,7 +167,6 @@ wk.add({
     { '<leader>bs', telescope.buffers,                                      desc = 'Search buffers' },
 })
 
-vim.keymap.del('n', '<leader>s') -- Search under the cursor?
 wk.add({
     { '<leader>s',  group = "search" },
     { '<leader>sg', '<cmd>Grepper<cr>',                  desc = 'Find in directory (quickfix)' },
@@ -190,7 +188,6 @@ wk.add({
     { '<leader>do', require 'dap'.step_out,          desc = 'Step Out' },
     { '<leader>db', require 'dap'.toggle_breakpoint, desc = 'Toggle Breakpoint' },
 })
-
 
 
 wk.add({
