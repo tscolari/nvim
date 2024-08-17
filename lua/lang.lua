@@ -238,9 +238,9 @@ vim.api.nvim_exec([[
 ]], false)
 
 require("filetype").setup({
-    overrides = {
-        extensions = {
-            sql = "sql",
-        },
-      },
+  overrides = {
+    extensions = {
+      sql = "sql",
+    },
+  },
 })
