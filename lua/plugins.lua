@@ -259,7 +259,7 @@ packer.startup {
         use 'mg979/vim-visual-multi'
         use 'romainl/vim-qf'
         use 'tommcdo/vim-exchange'
-        use 'benmills/vimux'
+        -- use 'preservim/vimux'
         use 'skywind3000/asyncrun.vim'
         use 'sk1418/Join'
 
