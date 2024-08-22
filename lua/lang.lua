@@ -1,4 +1,3 @@
-local lsp_installer = require("nvim-lsp-installer")
 local lspconfig = require('lspconfig')
 local configs = require('lspconfig/configs')
 local lsp_status = require('lsp-status')
@@ -10,10 +9,6 @@ lsp_format.setup()
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-lsp_installer.setup {
-  automatic_installation = true,
-}
 
 trouble.setup {
   use_diagnostic_signs = true,

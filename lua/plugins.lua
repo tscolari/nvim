@@ -28,8 +28,14 @@ packer.startup {
         }
 
         use {
-            "williamboman/mason.nvim",
-            requires = { "WhoIsSethDaniel/mason-tool-installer.nvim" },
+            'williamboman/mason.nvim',
+            'WhoIsSethDaniel/mason-tool-installer.nvim',
+            'williamboman/mason-lspconfig.nvim',
+            'neovim/nvim-lspconfig',
+            config = function()
+                require("mason").setup()
+                require("mason-lspconfig").setup()
+            end
         }
 
         use 'nvim-lua/plenary.nvim'
@@ -82,9 +88,7 @@ packer.startup {
 
         use {
             'lukas-reineke/lsp-format.nvim',
-            'neovim/nvim-lspconfig',
             'folke/lsp-colors.nvim',
-            'williamboman/nvim-lsp-installer',
             'folke/trouble.nvim',
             'onsails/lspkind-nvim',
             'ray-x/lsp_signature.nvim',
