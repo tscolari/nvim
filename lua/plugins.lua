@@ -27,6 +27,22 @@ packer.startup {
             config = function() require('impatient') end,
         }
 
+        use {
+            "williamboman/mason.nvim",
+            requires = { "WhoIsSethDaniel/mason-tool-installer.nvim" },
+            config = function()
+                require("mason")
+                local mason_tool_installer = require("mason-tool-installer")
+
+                mason_tool_installer.setup({
+                    ensure_installed = {
+                        -- "gopls",
+                        -- "delve",
+                    },
+                })
+            end,
+        }
+
         -- drop in replacement for filetype.vim
         use 'nathom/filetype.nvim'
 
@@ -36,15 +52,12 @@ packer.startup {
             config = function() vim.notify = require('notify') end,
         }
 
+        use 'christoomey/vim-tmux-navigator'
+
+        use 'sainnhe/gruvbox-material'
+        use 'morhetz/gruvbox'
         use 'rafamadriz/neon'
         use 'navarasu/onedark.nvim'
-        use 'sainnhe/gruvbox-material'
-
-        use 'christoomey/vim-tmux-navigator'
-        use 'morhetz/gruvbox'
-
-        -- these don't switch the whole background sometimes...
-        use 'RRethy/nvim-base16'
 
         use 'nvim-tree/nvim-web-devicons'
         use {
@@ -53,17 +66,6 @@ packer.startup {
         }
 
         use 'nvim-lua/popup.nvim'
-
-        use 'echasnovski/mini.nvim'
-
-        use {
-            'antoinemadec/FixCursorHold.nvim',
-            event = { 'BufRead', 'BufNewFile' },
-            config = function()
-                vim.g.cursorhold_updatetime = 100
-            end,
-        }
-
         use 'moll/vim-bbye'
 
         use {
@@ -101,9 +103,26 @@ packer.startup {
             'onsails/lspkind-nvim',
             'ray-x/lsp_signature.nvim',
             'nvim-lua/lsp-status.nvim',
-            'jose-elias-alvarez/null-ls.nvim',
             requires = 'kyazdani42/nvim-web-devicons',
             after = 'go.nvim',
+        }
+
+        use {
+            'stevearc/conform.nvim',
+            config = function()
+                local conform = require("conform")
+
+                conform.setup({
+                    formatters_by_ft = {
+                        go = { "gofmt" },
+                    },
+                    format_on_save = {
+                        async = false,
+                        timeout_ms = 500,
+                        lsp_format = "fallback",
+                    },
+                })
+            end,
         }
 
         use {
@@ -251,7 +270,6 @@ packer.startup {
         use 'bronson/vim-trailing-whitespace'
         use 'junegunn/vim-easy-align'
         use 'kopischke/vim-fetch'
-        -- use 'kopischke/vim-stay'
         use 'liuchengxu/vista.vim'
         use 'machakann/vim-swap'
         use 'matze/vim-move'
@@ -259,7 +277,7 @@ packer.startup {
         use 'mg979/vim-visual-multi'
         use 'romainl/vim-qf'
         use 'tommcdo/vim-exchange'
-        -- use 'preservim/vimux'
+        use 'preservim/vimux'
         use 'skywind3000/asyncrun.vim'
         use 'sk1418/Join'
 
@@ -292,11 +310,6 @@ packer.startup {
 
         -- languages
         use {
-            'numirias/semshi',
-            run = ':UpdateRemotePlugins',
-            -- ft = 'python' -- doesn't work
-        }
-        use {
             'tpope/vim-markdown',
             ft = 'markdown',
         }
@@ -308,12 +321,7 @@ packer.startup {
             'vim-ruby/vim-ruby',
             ft = { 'ruby', 'rake' }
         }
-        use {
-            'tpope/vim-cucumber',
-            ft = 'cucumber',
-        }
         use 'PotatoesMaster/i3-vim-syntax'
-        -- use 'cappyzawa/starlark.vim'
         use {
             'mattn/emmet-vim',
             config = function()
