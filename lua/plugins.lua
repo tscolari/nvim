@@ -43,9 +43,6 @@ packer.startup {
             end,
         }
 
-        -- drop in replacement for filetype.vim
-        use 'nathom/filetype.nvim'
-
         use 'nvim-lua/plenary.nvim'
         use {
             'rcarriga/nvim-notify',

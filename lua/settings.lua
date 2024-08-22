@@ -67,7 +67,6 @@ opt.foldmethod       = 'expr'
 opt.foldexpr         = 'nvim_treesitter#foldexpr()'
 
 g.do_filetype_lua    = 1 -- use filetype.lua
-g.did_load_filetypes = 0 -- don't use filetype.vim
 
 vim.cmd [[
 augroup config#basic
