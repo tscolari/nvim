@@ -1,9 +1,7 @@
--- if os.getenv('TMUX') ~= '' then
---   vim.g['test#strategy'] = 'vimux'
---   vim.g['test#preserve_screen'] = 0
--- end
-
-vim.g['test#strategy'] = 'neovim'
+if os.getenv('TMUX') ~= '' then
+  vim.g['test#strategy'] = 'vimux'
+  vim.g['test#preserve_screen'] = 0
+end
 
 require("neotest").setup({
   adapters = {

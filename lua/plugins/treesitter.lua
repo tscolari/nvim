@@ -14,7 +14,6 @@ require('nvim-treesitter.configs').setup {
   },
   refactor = {
     highlight_definitions = { enable = true },
-    -- highlight_current_scope = { enable = true },
     smart_rename = {
       enable = true,
       keymaps = {
@@ -79,10 +78,6 @@ require('nvim-treesitter.configs').setup {
   autotag = {
     enable = true,
   },
-  -- context_commentstring = {
-  --   enable = true,
-  --   enable_autocmd = false,
-  -- },
 
   ensure_installed = {
     "c",

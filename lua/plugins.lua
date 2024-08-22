@@ -30,17 +30,6 @@ packer.startup {
         use {
             "williamboman/mason.nvim",
             requires = { "WhoIsSethDaniel/mason-tool-installer.nvim" },
-            config = function()
-                require("mason")
-                local mason_tool_installer = require("mason-tool-installer")
-
-                mason_tool_installer.setup({
-                    ensure_installed = {
-                        -- "gopls",
-                        -- "delve",
-                    },
-                })
-            end,
         }
 
         use 'nvim-lua/plenary.nvim'

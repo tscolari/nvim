@@ -10,7 +10,7 @@ if vim.version().major == 0 and vim.version().minor < 7 then
     local fmt = string.format
     local version = vim.version().major .. '.' .. vim.version().minor .. '.' .. vim.version().patch
     vim.api.nvim_err_writeln(
-        fmt('luan/nvim requires at least nvim-0.7.0 (current %s)', version)
+        fmt('this requires at least nvim-0.7.0 (current %s)', version)
     )
     vim.api.nvim_err_writeln('Please update Neovim')
     return
