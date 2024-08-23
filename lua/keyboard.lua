@@ -20,35 +20,15 @@ vim.keymap.set('n', '\\', ':noh<return>')
 vim.keymap.set('n', '<M-q>', [[:Bdelete<cr>]], { silent = true })
 
 -- comments
-vim.keymap.set('n', '<C-_>', '<Plug>(comment_toggle_linewise_current)')
-vim.keymap.set('v', '<C-_>', '<Plug>(comment_toggle_linewise_visual)')
-
--- emacs bindings
-vim.keymap.set({ 'i', 'c' }, '<C-b>', '<Left>')
-vim.keymap.set({ 'i', 'c' }, '<M-b>', '<C-Left>')
-
-vim.keymap.set({ 'i', 'c' }, '<C-f>', '<Right>')
-vim.keymap.set({ 'i', 'c' }, '<M-f>', '<C-Right>')
-
-vim.keymap.set({ 'i', 'c' }, '<C-d>', '<Del>')
-vim.keymap.set({ 'i', 'c' }, '<M-d>', '<C-Right><C-w>')
-vim.keymap.set({ 'i', 'c' }, '<C-h>', '<BS>')
-
-vim.keymap.set({ 'i', 'c' }, '<C-a>', '<Home>')
-vim.keymap.set({ 'i', 'c' }, '<C-e>', '<End>')
-
-vim.keymap.set('c', '<C-p>', '<Up>')
-vim.keymap.set('c', '<C-n>', '<Down>')
-
-vim.keymap.set('i', '<C-k>', '<Esc>lDa')
-vim.keymap.set('c', '<C-k>', '<C-f>D<C-c><C-c>:<Up>')
+-- vim.keymap.set('n', '<C-_>', '<Plug>(comment_toggle_linewise_current)')
+-- vim.keymap.set('v', '<C-_>', '<Plug>(comment_toggle_linewise_visual)')
 
 -- Diagnostics
 vim.keymap.set('n', '<M-p>', [[:Lspsaga diagnostic_jump_prev<cr>]], { silent = true })
 vim.keymap.set('n', '<M-n>', [[:Lspsaga diagnostic_jump_next<cr>]], { silent = true })
 
 -- Full redraw finxing syntax highlight bugs
-vim.keymap.set('n', '<c-l>', [[:nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>]], { silent = true })
+-- vim.keymap.set('n', '<c-l>', [[:nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>]], { silent = true })
 
 -- Mimic behavior from D, C
 vim.keymap.set('n', 'Y', 'y$')
@@ -56,9 +36,6 @@ vim.keymap.set('n', 'Y', 'y$')
 -- Indent/un-indent
 vim.keymap.set('v', '>', '>gv')
 vim.keymap.set('v', '<', '<gv')
-
-vim.keymap.set('v', '<Tab>', '>gv')
-vim.keymap.set('v', '<S-Tab>', '<gv')
 
 -- Don't replace buffer when pasting on visual
 vim.keymap.set('v', 'p', '"_dP')
@@ -70,6 +47,7 @@ vim.keymap.set('n', '<CR>', function()
     end
     vim.schedule(function() vim.cmd("write") end)
 end, { expr = true })
+
 -- Save without formatting
 vim.keymap.set('n', '<S-CR>', function()
     if api.nvim_eval([[&modified]]) ~= 1 or api.nvim_eval([[&buftype]]) ~= '' then
@@ -80,9 +58,6 @@ end, { expr = true })
 
 -- Copy to system clipboard
 vim.keymap.set('v', 'Y', '"+y')
-
--- Escape to clear search
-vim.keymap.set('n', '<esc>', ':noh<cr>', { silent = true })
 
 -- Fuzzy finding
 vim.keymap.set('n', '<C-p>', [[<cmd>FZFFiles<cr>]])
