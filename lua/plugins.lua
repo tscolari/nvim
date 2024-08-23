@@ -288,6 +288,8 @@ packer.startup {
         use 'tpope/vim-surround'
         use 'tpope/vim-unimpaired'
 
+        use 'tscolari/goalt.nvim'
+
         -- languages
         use {
             'tpope/vim-markdown',
