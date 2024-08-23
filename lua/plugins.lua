@@ -94,7 +94,6 @@ packer.startup {
             'ray-x/lsp_signature.nvim',
             'nvim-lua/lsp-status.nvim',
             requires = 'kyazdani42/nvim-web-devicons',
-            after = 'go.nvim',
         }
 
         use {
@@ -177,15 +176,6 @@ packer.startup {
                 'nvim-lua/plenary.nvim'
             },
             config = function() require('plugins.vgit') end,
-        }
-
-        use {
-            'ray-x/go.nvim',
-            config = function()
-                require('go').setup({
-                    lsp_keymaps = false,
-                })
-            end,
         }
 
         use {

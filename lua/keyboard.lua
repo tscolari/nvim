@@ -1,8 +1,8 @@
 local wk = require('which-key')
 local vgit = require('vgit')
 local telescope = require('telescope.builtin')
--- local map = vim.keymap.set
 local api = vim.api
+require('plugins/goalt').setup()
 
 vim.g.VM_leader = { default = '<space>v', visual = '<space>v', buffer = 'z' }
 
