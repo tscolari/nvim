@@ -103,7 +103,7 @@ packer.startup {
 
                 conform.setup({
                     formatters_by_ft = {
-                        go = { "gofmt" },
+                        go = { "gofmt", "goimports" },
                     },
                     format_on_save = {
                         async = false,
