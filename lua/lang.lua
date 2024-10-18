@@ -158,16 +158,16 @@ lspconfig.emmet_ls.setup({
 })
 
 -- TypeScript
-lspconfig.tsserver.setup({
-  init_options = {
-    hostInfo = "neovim",
-    maxTsServerMemory = 8192,
-  },
-  on_attach = function(client, bufnr)
-    on_attach(client, bufnr)
-    client.resolved_capabilities.document_formatting = false
-    client.resolved_capabilities.document_range_formatting = false
-  end,
+lspconfig.ts_ls.setup({
+  -- init_options = {
+  --   hostInfo = "neovim",
+  --   maxTsServerMemory = 8192,
+  -- },
+  -- on_attach = function(client, bufnr)
+  --   on_attach(client, bufnr)
+  --   client.resolved_capabilities.document_formatting = false
+  --   client.resolved_capabilities.document_range_formatting = false
+  -- end,
 })
 
 
