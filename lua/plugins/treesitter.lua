@@ -1,4 +1,8 @@
 require('nvim-treesitter.configs').setup {
+
+  sync_install = false,
+  auto_install = false,
+
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false,
@@ -44,7 +48,7 @@ require('nvim-treesitter.configs').setup {
     },
     move = {
       enable = true,
-      set_jumps = true, -- whether to set jumps in the jumplist
+      set_jumps = true,       -- whether to set jumps in the jumplist
       goto_next_start = {
         ["]m"] = "@function.outer",
         ["]]"] = "@class.outer",
@@ -66,8 +70,8 @@ require('nvim-treesitter.configs').setup {
   playground = {
     enable = true,
     disable = {},
-    updatetime = 25,        -- Debounced time for highlighting nodes in the playground from source code
-    persist_queries = false -- Whether the query persists across vim sessions
+    updatetime = 25,            -- Debounced time for highlighting nodes in the playground from source code
+    persist_queries = false     -- Whether the query persists across vim sessions
   },
   rainbow = {
     enable = true,
@@ -77,77 +81,5 @@ require('nvim-treesitter.configs').setup {
   },
   autotag = {
     enable = true,
-  },
-
-  ensure_installed = {
-    "c",
-    "c_sharp",
-    "clojure",
-    "cmake",
-    "comment",
-    "cpp",
-    "css",
-    "d",
-    "dart",
-    "dockerfile",
-    "dot",
-    "elixir",
-    "elm",
-    "erlang",
-    "fennel",
-    "fish",
-    "fortran",
-    "go",
-    "godot_resource",
-    "gomod",
-    "gowork",
-    "graphql",
-    "hack",
-    "haskell",
-    "hcl",
-    "vimdoc",
-    "html",
-    "http",
-    "java",
-    "javascript",
-    "jsdoc",
-    "json",
-    "json5",
-    "jsonc",
-    "kotlin",
-    "latex",
-    "llvm",
-    "lua",
-    "make",
-    "markdown",
-    "ninja",
-    "nix",
-    "pascal",
-    "perl",
-    "php",
-    "python",
-    "ql",
-    "query",
-    "r",
-    "regex",
-    "rst",
-    "ruby",
-    "rust",
-    "scala",
-    "scheme",
-    "scss",
-    "sql",
-    "svelte",
-    "swift",
-    "teal",
-    "todotxt",
-    "toml",
-    "tsx",
-    "turtle",
-    "typescript",
-    "verilog",
-    "vim",
-    "vue",
-    "yaml",
   },
 }
