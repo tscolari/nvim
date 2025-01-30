@@ -315,4 +315,5 @@ packer.startup {
 }
 
 packer.install()
+vim.cmd('source ' .. vim.fn.stdpath('data') .. '/plugin/packer_compiled.lua')
 return packer
