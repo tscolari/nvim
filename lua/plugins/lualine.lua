@@ -1,12 +1,12 @@
 require('lualine').setup {
     options = {
         theme = vim.g.lualine_theme,
-        section_separators = {left = '', right = ''},
-        component_separators = {left = '', right = ''},
+        section_separators = { left = '', right = '' },
+        component_separators = { left = '', right = '' },
     },
     sections = {
-        lualine_a = {'mode'},
-        lualine_b = {'branch'},
+        lualine_a = { 'mode' },
+        lualine_b = { 'branch' },
         lualine_c = {
             'filetype',
             {
@@ -15,9 +15,8 @@ require('lualine').setup {
                 path = 1,
             },
         },
-        lualine_x = {{ 'diagnostics', sources = {'nvim_diagnostic'}}, 'encoding', 'fileformat'},
-        lualine_y = {'progress'},
-        lualine_z = {'location', require('update').status }
+        lualine_x = { { 'diagnostics', sources = { 'nvim_diagnostic' } }, 'encoding', 'fileformat' },
+        lualine_y = { 'progress' },
     },
     inactive_sections = {
         lualine_a = {},
@@ -29,7 +28,7 @@ require('lualine').setup {
                 path = 1,
             },
         },
-        lualine_x = {'location'},
+        lualine_x = { 'location' },
         lualine_y = {},
         lualine_z = {},
     },

@@ -4,64 +4,29 @@
         "body": "fmt.Println(\"$1\")",
         "description": "Snippet for fmt.Println()"
     },
-    "Expect Error": {
-        "prefix": "exeo",
-        "body": "Expect(err).To(HaveOccurred())",
-        "description": "Snippet for Ginkgo Expect(err).To(HaveOccurred())"
+    "Require no Error": {
+        "prefix": "rnoerr",
+        "body": "require.NoError(t, err)",
+        "description": "Snippet for testify require.NoError"
     },
-    "Expect No Error": {
-        "prefix": "exen",
-        "body": "Expect(err).NotTo(HaveOccurred())",
-        "description": "Snippet for Ginkgo Expect(err).NotTo(HaveOccurred())"
+    "Require Error": {
+        "prefix": "rerr",
+        "body": "require.Error(t, err)",
+        "description": "Snippet for testify require.Error"
     },
-    "Expect": {
-        "prefix": "exto",
-        "body": "Expect(${1:actual}).To($0)",
-        "description": "Snippet for Ginkgo Expect.To"
+    "Require Equal": {
+        "prefix": "requal",
+        "body": "require.Equal(t, ${1:actual}, $0)",
+        "description": "Snippet for testify require.Equal"
     },
-    "Expect.NotTo": {
-        "prefix": "exnt",
-        "body": "Expect(${1:actual}).NotTo($0)",
-        "description": "Snippet for Ginkgo Expect.NotTo"
+    "Require Not Equal": {
+        "prefix": "rnoteq",
+        "body": "require.NotEqual(t, ${1:actual}, $0)",
+        "description": "Snippet for testify require.NotEqual"
     },
-    "Expect.ToNot": {
-        "prefix": "extn",
-        "body": "Expect(${1:actual}).ToNot($0)",
-        "description": "Snippet for Ginkgo Expect.ToNot"
+    "t.Run": {
+        "prefix": "trun",
+        "body": "t.Run(\"${1:something}\", func(t *testing.T) {\n\t$0\n})",
+        "description": "Snippet for t.Run()"
     },
-    "It": {
-        "prefix": "it",
-        "body": "It(\"${1:something}\", func() {}\n\t$0\n})",
-        "description": "Snippet for Ginkgo It"
-    },
-    "AfterEach": {
-        "prefix": "aft",
-        "body": "AfterEach(\"${1:something}\", func() {}\n\t$0\n})",
-        "description": "Snippet for Ginkgo AfterEach"
-    },
-    "JustBeforeEach": {
-        "prefix": "just",
-        "body": "JustBeforeEach(\"${1:something}\", func() {}\n\t$0\n})",
-        "description": "Snippet for Ginkgo JustBeforeEach"
-    },
-    "BeforeEach": {
-        "prefix": "bef",
-        "body": "BeforeEach(\"${1:something}\", func() {}\n\t$0\n})",
-        "description": "Snippet for Ginkgo BeforeEach"
-    },
-    "When": {
-        "prefix": "when",
-        "body": "When(\"${1:something}\", func() {}\n\t$0\n})",
-        "description": "Snippet for Ginkgo When"
-    },
-    "Context": {
-        "prefix": "cont",
-        "body": "Context(\"${1:something}\", func() {}\n\t$0\n})",
-        "description": "Snippet for Ginkgo Context"
-    },
-    "Describe": {
-        "prefix": "desc",
-        "body": "Describe(\"${1:something}\", func() {}\n\t$0\n})",
-        "description": "Snippet for Ginkgo Describe"
-    }
 }
