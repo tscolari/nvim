@@ -26,12 +26,6 @@ vim.keymap.set('n', '<M-q>', [[:Bdelete<cr>]], { silent = true })
 vim.keymap.set('n', '<M-p>', [[:Lspsaga diagnostic_jump_prev<cr>]], { silent = true })
 vim.keymap.set('n', '<M-n>', [[:Lspsaga diagnostic_jump_next<cr>]], { silent = true })
 
--- Full redraw finxing syntax highlight bugs
--- vim.keymap.set('n', '<c-l>', [[:nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>]], { silent = true })
-
--- Mimic behavior from D, C
-vim.keymap.set('n', 'Y', 'y$')
-
 -- Indent/un-indent
 vim.keymap.set('v', '>', '>gv')
 vim.keymap.set('v', '<', '<gv')

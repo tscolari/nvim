@@ -140,51 +140,6 @@ lspconfig.rust_analyzer.setup({
   }
 })
 
--- Emmet
-if not lspconfig.emmet_ls then
-  configs.emmet_ls = {
-    default_config = {
-      cmd = { 'emmet-ls', '--stdio' },
-      filetypes = { 'html', 'css', 'blade', 'javascriptreact', 'javascript.jsx' },
-      root_dir = function()
-        return vim.loop.cwd()
-      end,
-      settings = {},
-    },
-  }
-end
-lspconfig.emmet_ls.setup({
-  capabilities = capabilities,
-})
-
--- TypeScript
-lspconfig.ts_ls.setup({
-  -- init_options = {
-  --   hostInfo = "neovim",
-  --   maxTsServerMemory = 8192,
-  -- },
-  -- on_attach = function(client, bufnr)
-  --   on_attach(client, bufnr)
-  --   client.resolved_capabilities.document_formatting = false
-  --   client.resolved_capabilities.document_range_formatting = false
-  -- end,
-})
-
-
-lspconfig.eslint.setup({
-  handlers = {
-    ["window/showMessageRequest"] = function(_, result, params)
-      return result
-    end,
-  },
-  on_attach = function(client, bufnr)
-    on_attach(client, bufnr)
-    client.resolved_capabilities.document_formatting = true
-    client.resolved_capabilities.document_range_formatting = true
-  end,
-})
-
-
 -- Go
 lspconfig.gopls.setup {
   capabilities = capabilities,
