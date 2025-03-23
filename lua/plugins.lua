@@ -21,15 +21,9 @@ packer.startup {
         -- Packer can manage itself as an optional plugin
         use 'wbthomason/packer.nvim'
 
-        -- Speed up loading Lua modules in Neovim to improve startup time.
-        use {
-            'lewis6991/impatient.nvim',
-            config = function() require('impatient') end,
-        }
-
         use {
             'williamboman/mason.nvim',
-            'WhoIsSethDaniel/mason-tool-installer.nvim',
+            -- 'WhoIsSethDaniel/mason-tool-installer.nvim',
             'williamboman/mason-lspconfig.nvim',
             'neovim/nvim-lspconfig',
             config = function()
@@ -57,7 +51,6 @@ packer.startup {
             config = function() require('plugins.lualine') end,
         }
 
-        use 'nvim-lua/popup.nvim'
         use 'moll/vim-bbye'
 
         use {
@@ -273,10 +266,6 @@ packer.startup {
                 }
             end,
         }
-        use {
-            'haya14busa/incsearch.vim',
-            config = function() require('plugins.incsearch') end,
-        }
 
         -- thanks tpope
         use 'tpope/vim-abolish'
@@ -304,13 +293,6 @@ packer.startup {
             ft = { 'ruby', 'rake' }
         }
         use 'PotatoesMaster/i3-vim-syntax'
-        use {
-            'mattn/emmet-vim',
-            config = function()
-                vim.g.user_emmet_leader_key = '<leader>e'
-                vim.g.user_emmet_mode = 'nv'
-            end,
-        }
     end,
 }
 

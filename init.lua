@@ -16,6 +16,8 @@ if vim.version().major == 0 and vim.version().minor < 7 then
     return
 end
 
+vim.loader.enable()
+
 require('globals')
 require('packer-init')
 
