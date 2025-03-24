@@ -36,37 +36,40 @@ opt.completeopt    = { 'noinsert', 'menuone', 'noselect' }
 opt.shortmess:append('c') -- don't pass messages to |ins-completion-menu|
 
 -- Indentation
-opt.expandtab        = true -- Tabs are spaces, not tabs
-opt.shiftwidth       = 4    -- Use indents of 2 spaces
-opt.softtabstop      = 4    -- Let backspace delete indent
-opt.tabstop          = 4    -- An indentation every four columns
+opt.expandtab     = true -- Tabs are spaces, not tabs
+opt.shiftwidth    = 4    -- Use indents of 2 spaces
+opt.softtabstop   = 4    -- Let backspace delete indent
+opt.tabstop       = 4    -- An indentation every four columns
 
 -- Undo
-opt.undofile         = true                  -- Persistent undo
-opt.undodir          = CACHE_PATH .. '/undo' -- set an undo directory
-opt.undolevels       = 1000                  -- Maximum number of changes that can be undone
-opt.undoreload       = 10000                 -- Maximum number lines to save for undo on a buffer reload
+opt.undofile      = true                  -- Persistent undo
+opt.undodir       = CACHE_PATH .. '/undo' -- set an undo directory
+opt.undolevels    = 1000                  -- Maximum number of changes that can be undone
+opt.undoreload    = 10000                 -- Maximum number lines to save for undo on a buffer reload
 
 -- Command mode
-opt.showmode         = false -- Hide current mode in command-line (shown by lightline)
-opt.fillchars        = 'vert:│,stl: ,stlnc: '
+opt.showmode      = false -- Hide current mode in command-line (shown by lightline)
+opt.fillchars     = 'vert:│,stl: ,stlnc: '
 
 -- Encoding & file formats
-opt.fileencoding     = 'utf-8'
+opt.fileencoding  = 'utf-8'
 
 -- Backups
-opt.backup           = false
-opt.writebackup      = false
+opt.backup        = false
+opt.writebackup   = false
 
 -- Cursor line
-opt.cursorline       = true
+opt.cursorline    = true
 
 -- Folding
-opt.foldlevel        = 9999
-opt.foldmethod       = 'expr'
-opt.foldexpr         = 'nvim_treesitter#foldexpr()'
+opt.foldlevel     = 9999
+opt.foldmethod    = 'expr'
+opt.foldexpr      = 'nvim_treesitter#foldexpr()'
 
-g.do_filetype_lua    = 1 -- use filetype.lua
+-- views can only be fully collapsed with the global statusline
+opt.laststatus    = 3
+
+g.do_filetype_lua = 1 -- use filetype.lua
 
 vim.cmd [[
 augroup config#basic

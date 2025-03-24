@@ -65,6 +65,11 @@ packer.startup {
         }
 
         use {
+            "zbirenbaum/copilot.lua",
+            config = function() require('plugins/avante') end,
+        }
+
+        use {
             'junegunn/fzf.vim',
             requires = { 'junegunn/fzf', run = vim.fn['fzf#install'] },
             setup = function() vim.g.fzf_command_prefix = 'FZF' end,
