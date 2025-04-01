@@ -138,7 +138,7 @@ packer.startup {
         }
 
         use {
-            'p00f/nvim-ts-rainbow',
+            'HiPhish/rainbow-delimiters.nvim',
             'windwp/nvim-ts-autotag',
             'JoosepAlviste/nvim-ts-context-commentstring'
         }
