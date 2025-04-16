@@ -65,6 +65,33 @@ local on_attach = function(client, bufnr)
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
       augroup END
     ]], false)
+  else
+    vim.api.nvim_create_autocmd("CursorHold", {
+      callback = function()
+        vim.diagnostic.open_float({ focus = false })
+      end
+    })
+
+    vim.api.nvim_create_autocmd("CursorMoved", {
+      buffer = bufnr, -- Make this buffer-local!
+      callback = function()
+        -- Close only diagnostic floating windows, not all floating windows
+        for _, win in ipairs(vim.api.nvim_list_wins()) do
+          local win_config = vim.api.nvim_win_get_config(win)
+          -- Check if it's a diagnostic window before closing
+          if win_config.relative ~= "" and vim.fn.win_gettype(win) == "popup" then
+            -- You might need to add additional checks here to identify diagnostic windows specifically
+            -- For example, check window options or buffer name patterns
+            local buf = vim.api.nvim_win_get_buf(win)
+            local buf_name = vim.api.nvim_buf_get_name(buf)
+            if buf_name:match("diagnostic") or buf_name == "" then
+              vim.api.nvim_win_close(win, false)
+            end
+          end
+        end
+      end
+    })
+    vim.opt.updatetime = 5
   end
 end
 
@@ -145,6 +172,7 @@ lspconfig.gopls.setup {
   capabilities = capabilities,
   settings = {
     gopls = {
+      semanticTokens = true,
       experimentalPostfixCompletions = true,
       analyses = {
         unusedparams = true,

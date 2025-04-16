@@ -116,14 +116,14 @@ wk.add({
 
 wk.add({
     { '<leader>l',  group = "language-server" },
-    { '<leader>la', ':Lspsaga code_action<cr>',               desc = 'Code Action' },
-    { '<leader>l=', vim.lsp.buf.formatting_sync,              desc = 'Format' },
-    { '<leader>lr', ':Lspsaga rename<cr>',                    desc = 'Rename' },
-    { '<leader>lk', ':Lspsaga hover_doc<cr>',                 desc = 'Doc' },
-    { '<leader>ls', telescope.lsp_dynamic_workspace_symbols,  desc = 'Search Symbols' },
-    { '<leader>ld', "<cmd>Trouble document_diagnostics<cr>",  desc = 'Diagnostics' },
-    { '<leader>lD', "<cmd>Trouble workspace_diagnostics<cr>", desc = 'Workspace Diagnostics' },
-    { '<leader>lt', "<cmd>Vista!!<cr>",                       desc = 'Symbol tree' },
+    { '<leader>la', ':Lspsaga code_action<cr>',                 desc = 'Code Action' },
+    { '<leader>l=', vim.lsp.buf.formatting_sync,                desc = 'Format' },
+    { '<leader>lr', ':Lspsaga rename<cr>',                      desc = 'Rename' },
+    { '<leader>lk', ':Lspsaga hover_doc<cr>',                   desc = 'Doc' },
+    { '<leader>ls', telescope.lsp_dynamic_workspace_symbols,    desc = 'Search Symbols' },
+    { '<leader>ld', "<cmd>lua vim.diagnostic.setloclist()<cr>", desc = 'Diagnostics' },
+    { '<leader>lD', "<cmd>Trouble diagnostics<cr>",             desc = 'Workspace Diagnostics' },
+    { '<leader>lt', "<cmd>Vista!!<cr>",                         desc = 'Symbol tree' },
 })
 
 wk.add({
