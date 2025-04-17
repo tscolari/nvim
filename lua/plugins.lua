@@ -66,7 +66,17 @@ packer.startup {
 
         use {
             "zbirenbaum/copilot.lua",
-            config = function() require('plugins/avante') end,
+            config = function()
+                require('plugins/avante')
+            end,
+        }
+
+        use {
+            "zbirenbaum/copilot-cmp",
+            after = { "copilot.lua" },
+            config = function()
+                require("copilot_cmp").setup()
+            end
         }
 
         use {

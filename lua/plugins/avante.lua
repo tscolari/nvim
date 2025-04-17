@@ -1,8 +1,10 @@
 require("copilot").setup({
+  suggestion = { enabled = false },
   panel = {
+    enabled = false,
     layout = {
-      position = "right",
-      ratio = "0.3"
+      position = "bottom",
+      ratio = 0.3
     }
   }
 })
