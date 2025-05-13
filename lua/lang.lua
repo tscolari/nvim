@@ -210,3 +210,25 @@ require 'lspconfig'.yamlls.setup {
     }
   }
 }
+
+-- It can't deal with helm templates
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "yaml" },
+  callback = function(args)
+    -- Disable diagnostics in the buffer
+    vim.diagnostic.disable(args.buf)
+
+    vim.api.nvim_clear_autocmds({ event = "CursorHold" })
+
+    -- Disable CursorHold diagnostic popup (like Lspsaga hover diagnostics)
+    vim.api.nvim_clear_autocmds({
+      event = "CursorHold",
+      buffer = args.buf,
+    })
+
+    vim.api.nvim_clear_autocmds({
+      group = "LspsagaAutocmds", -- default group used by Lspsaga
+      buffer = args.buf,
+    })
+  end,
+})
