@@ -4,13 +4,13 @@ require("copilot").setup({
     enabled = false,
     layout = {
       position = "bottom",
-      ratio = 0.3
+      ratio = 0.2
     }
   }
 })
 
 require('avante').setup({
-  provider = "deepseek",
+  provider = "claude",
   vendors = {
     deepseek = {
       __inherited_from = "openai",
