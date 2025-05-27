@@ -178,6 +178,7 @@ lspconfig.gopls.setup {
   capabilities = capabilities,
   settings = {
     gopls = {
+      gofumpt = true,
       semanticTokens = true,
       experimentalPostfixCompletions = true,
       analyses = {
@@ -188,7 +189,19 @@ lspconfig.gopls.setup {
       staticcheck = true,
     },
   },
-  on_attach = on_attach,
+  on_attach = function(client, bufnr)
+    --   vim.api.nvim_create_autocmd("BufWritePre", {
+    --     buffer = bufnr,
+    --     callback = function()
+    --       vim.lsp.buf.code_action({
+    --         context = { only = { "source.organizeImports" } },
+    --         apply = true,
+    --       })
+    --     end,
+    --   })
+
+    on_attach(client, bufnr)
+  end,
 }
 
 -- Terraform
@@ -218,17 +231,19 @@ vim.api.nvim_create_autocmd("FileType", {
     -- Disable diagnostics in the buffer
     vim.diagnostic.disable(args.buf)
 
-    vim.api.nvim_clear_autocmds({ event = "CursorHold" })
-
     -- Disable CursorHold diagnostic popup (like Lspsaga hover diagnostics)
     vim.api.nvim_clear_autocmds({
       event = "CursorHold",
       buffer = args.buf,
     })
 
-    vim.api.nvim_clear_autocmds({
-      group = "LspsagaAutocmds", -- default group used by Lspsaga
-      buffer = args.buf,
-    })
+    -- Safely clear Lspsaga autocommands if group exists
+    local ok, group_autocmds = pcall(vim.api.nvim_get_autocmds, { group = "LspsagaAutocmds" })
+    if ok and group_autocmds and #group_autocmds > 0 then
+      vim.api.nvim_clear_autocmds({
+        group = "LspsagaAutocmds",
+        buffer = args.buf,
+      })
+    end
   end,
 })

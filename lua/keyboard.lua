@@ -50,7 +50,8 @@ vim.keymap.set('n', '<S-CR>', function()
 end, { expr = true })
 
 -- Copy to system clipboard
-vim.keymap.set('v', 'Y', '"+y')
+vim.keymap.set('v', 'Y', '"+y', { noremap = true, silent = true })
+
 
 -- Fuzzy finding
 vim.keymap.set('n', '<C-p>', [[<cmd>FZFFiles<cr>]])

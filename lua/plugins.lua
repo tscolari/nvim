@@ -65,21 +65,6 @@ packer.startup {
         }
 
         use {
-            "zbirenbaum/copilot.lua",
-            config = function()
-                require('plugins/avante')
-            end,
-        }
-
-        use {
-            "zbirenbaum/copilot-cmp",
-            after = { "copilot.lua" },
-            config = function()
-                require("copilot_cmp").setup()
-            end
-        }
-
-        use {
             'junegunn/fzf.vim',
             requires = { 'junegunn/fzf', run = vim.fn['fzf#install'] },
             setup = function() vim.g.fzf_command_prefix = 'FZF' end,
@@ -123,6 +108,21 @@ packer.startup {
         }
 
         use {
+            "zbirenbaum/copilot.lua",
+            config = function()
+                require('plugins/avante')
+            end,
+        }
+
+        use {
+            "zbirenbaum/copilot-cmp",
+            after = { "copilot.lua" },
+            config = function()
+                require("copilot_cmp").setup()
+            end
+        }
+
+        use {
             "hrsh7th/nvim-cmp",
             requires = {
                 "hrsh7th/vim-vsnip",
@@ -132,6 +132,7 @@ packer.startup {
                 "hrsh7th/cmp-nvim-lua",
                 "hrsh7th/cmp-vsnip",
                 "hrsh7th/cmp-calc",
+                "zbirenbaum/copilot-cmp",
             },
             config = function() require('plugins/completion') end,
         }
@@ -298,14 +299,6 @@ packer.startup {
         use {
             'tpope/vim-markdown',
             ft = 'markdown',
-        }
-        use 'keith/rspec.vim'
-        use {
-            'tpope/vim-bundler',
-            'tpope/vim-rails',
-            'tpope/vim-rake',
-            'vim-ruby/vim-ruby',
-            ft = { 'ruby', 'rake' }
         }
         use 'PotatoesMaster/i3-vim-syntax'
     end,

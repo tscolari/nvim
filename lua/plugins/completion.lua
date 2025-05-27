@@ -28,11 +28,9 @@ cmp.setup({
   mapping = {
     ['<C-y>'] = cmp.mapping.confirm({ select = true }),
 
-    ['<Tab>'] = next,
     ['<C-n>'] = next,
     ['<Up>'] = next,
 
-    ["<S-Tab>"] = prev,
     ["<C-p>"] = prev,
     ['<Down>'] = prev,
 
@@ -50,6 +48,10 @@ cmp.setup({
         fallback()
       end
     end, { 'i', 's' }),
+  },
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
   },
   sources = {
     { name = 'copilot' },
