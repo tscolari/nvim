@@ -52,6 +52,18 @@ end, { expr = true })
 -- Copy to system clipboard
 vim.keymap.set('v', 'Y', '"+y', { noremap = true, silent = true })
 
+vim.g.clipboard = {
+    name = "wl-clipboard",
+    copy = {
+        ["+"] = "wl-copy",
+        ["*"] = "wl-copy",
+    },
+    paste = {
+        ["+"] = "wl-paste --no-newline",
+        ["*"] = "wl-paste --no-newline",
+    },
+    cache_enabled = 0,
+}
 
 -- Fuzzy finding
 vim.keymap.set('n', '<C-p>', [[<cmd>FZFFiles<cr>]])
