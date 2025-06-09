@@ -11,7 +11,7 @@ require("copilot").setup({
 
 require('avante').setup({
   provider = "claude",
-  vendors = {
+  providers = {
     deepseek = {
       __inherited_from = "openai",
       api_key_name = "DEEPSEEK_API_KEY",
