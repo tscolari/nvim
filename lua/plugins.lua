@@ -75,7 +75,9 @@ packer.startup {
             'nvimdev/lspsaga.nvim',
             after = 'nvim-lspconfig',
             config = function()
-                require('lspsaga').setup({})
+                require('lspsaga').setup({
+                    lightbulb = { enable = false },
+                })
             end,
         }
 
