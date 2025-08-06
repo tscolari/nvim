@@ -210,7 +210,9 @@ require 'lspconfig'.terraformls.setup {
 }
 
 -- Docker
-require 'lspconfig'.dockerls.setup {}
+require 'lspconfig'.dockerls.setup {
+  cmd = { 'docker-language-server', 'start', '--stdio' },
+}
 
 -- Yaml
 require 'lspconfig'.yamlls.setup {
