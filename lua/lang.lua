@@ -1,5 +1,3 @@
-local lspconfig = require('lspconfig')
-local configs = require('lspconfig/configs')
 local lsp_status = require('lsp-status')
 local lspkind = require('lspkind')
 local trouble = require('trouble')
@@ -95,14 +93,18 @@ local on_attach = function(client, bufnr)
   end
 end
 
-lspconfig.util.default_config = vim.tbl_extend(
-  "force",
-  lspconfig.util.default_config,
-  {
-    capabilities = lsp_status.capabilities,
-    on_attach = on_attach,
-  }
-)
+vim.lsp.config('*', {
+  root_markers = { '.git/' },
+})
+
+-- vim.lsp.config.util.default_config = vim.tbl_extend(
+--   "force",
+--   vim.lsp.config.util.default_config,
+--   {
+--     capabilities = lsp_status.capabilities,
+--     on_attach = on_attach,
+--   }
+-- )
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -128,7 +130,7 @@ lspkind.init({
 vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
 
 -- Lua
-lspconfig.lua_ls.setup({
+vim.lsp.config('lua_ls', {
   capabilities = capabilities,
   settings = {
     Lua = {
@@ -147,16 +149,19 @@ lspconfig.lua_ls.setup({
       },
     },
   },
-  on_attach = function(client, bufnr)
-    lsp_format.on_attach(client)
-    on_attach(client, bufnr)
-  end
 })
+-- lspconfig.lua_ls.setup({
+--   on_attach = function(client, bufnr)
+--     lsp_format.on_attach(client)
+--     on_attach(client, bufnr)
+--   end
+-- })
+
+vim.lsp.enable('lua_ls')
 
 -- Rust
-lspconfig.rust_analyzer.setup({
+vim.lsp.config('rust_analyzer', {
   capabilities = capabilities,
-  on_attach = on_attach,
   settings = {
     ["rust-analyzer"] = {
       assist = {
@@ -172,9 +177,13 @@ lspconfig.rust_analyzer.setup({
     }
   }
 })
+-- lspconfig.rust_analyzer.setup({
+--   on_attach = on_attach,
+-- })
+vim.lsp.enable('rust_analyzer')
 
 -- Go
-lspconfig.gopls.setup {
+vim.lsp.config('gopls', {
   capabilities = capabilities,
   settings = {
     gopls = {
@@ -189,42 +198,51 @@ lspconfig.gopls.setup {
       staticcheck = true,
     },
   },
-  on_attach = function(client, bufnr)
-    --   vim.api.nvim_create_autocmd("BufWritePre", {
-    --     buffer = bufnr,
-    --     callback = function()
-    --       vim.lsp.buf.code_action({
-    --         context = { only = { "source.organizeImports" } },
-    --         apply = true,
-    --       })
-    --     end,
-    --   })
+})
+vim.lsp.enable('gopls')
 
-    on_attach(client, bufnr)
-  end,
-}
+-- lspconfig.gopls.setup {
+--   on_attach = function(client, bufnr)
+--     --   vim.api.nvim_create_autocmd("BufWritePre", {
+--     --     buffer = bufnr,
+--     --     callback = function()
+--     --       vim.lsp.buf.code_action({
+--     --         context = { only = { "source.organizeImports" } },
+--     --         apply = true,
+--     --       })
+--     --     end,
+--     --   })
+--
+--     on_attach(client, bufnr)
+--   end,
 
 -- Terraform
-require 'lspconfig'.terraformls.setup {
+vim.lsp.config('terraformls', {
   filetypes = { 'terraform', 'tf' },
-}
+})
+vim.lsp.enable('terraformls')
 
 -- Docker
-require 'lspconfig'.dockerls.setup {
+vim.lsp.config('dockerls', {
   cmd = { 'docker-language-server', 'start', '--stdio' },
-}
+})
+vim.lsp.enable('dockerls')
 
 -- Yaml
-require 'lspconfig'.yamlls.setup {
+vim.lsp.config('yamlls', {
+  capabilities = capabilities,
   settings = {
     yaml = {
+      keyOrdering = false,
       schemas = {
         ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "docker-compose.yml",
         ["https://json.schemastore.org/chart.json"] = "Chart.yaml"
       }
     }
   }
-}
+})
+vim.lsp.enable('yamlls')
+
 
 -- It can't deal with helm templates
 vim.api.nvim_create_autocmd("FileType", {
