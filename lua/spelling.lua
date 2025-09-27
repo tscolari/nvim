@@ -10,6 +10,10 @@ iab emtpy? empty?
 iab intereset interest
 iab proeprty property
 
+
+iab panad panda
+iab pand panda
+
 autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd BufRead,BufNewFile *.rdoc setlocal spell
 autocmd BufRead,BufNewFile *.markdown setlocal spell

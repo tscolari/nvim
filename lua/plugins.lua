@@ -21,6 +21,8 @@ packer.startup {
         -- Packer can manage itself as an optional plugin
         use 'wbthomason/packer.nvim'
 
+        use 'catppuccin/nvim'
+
         use {
             'williamboman/mason.nvim',
             -- 'WhoIsSethDaniel/mason-tool-installer.nvim',
