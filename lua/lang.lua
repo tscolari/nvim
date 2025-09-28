@@ -39,10 +39,10 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
   buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.open_float()<CR>', opts)
-  buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-  buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-  buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+  buf_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+  buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+  buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+  buf_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
 
   -- Set some keybinds conditional on server capabilities
   if client.server_capabilities.documentFormattingProvider then
@@ -66,7 +66,13 @@ local on_attach = function(client, bufnr)
   else
     vim.api.nvim_create_autocmd("CursorHold", {
       callback = function()
-        vim.diagnostic.open_float({ focus = false })
+        vim.diagnostic.open_float({
+          focus = false,
+          border = "rounded",
+          source = "always",
+          prefix = " ",
+          scope = "cursor",
+        })
       end
     })
 
@@ -95,16 +101,9 @@ end
 
 vim.lsp.config('*', {
   root_markers = { '.git/' },
+  capabilities = lsp_status.capabilities,
+  on_attach = on_attach,
 })
-
--- vim.lsp.config.util.default_config = vim.tbl_extend(
---   "force",
---   vim.lsp.config.util.default_config,
---   {
---     capabilities = lsp_status.capabilities,
---     on_attach = on_attach,
---   }
--- )
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
