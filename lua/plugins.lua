@@ -79,6 +79,9 @@ packer.startup {
             config = function()
                 require('lspsaga').setup({
                     lightbulb = { enable = false },
+                    code_action = {
+                        extend_gitsigns = false,
+                    },
                 })
             end,
         }

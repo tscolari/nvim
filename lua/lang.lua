@@ -150,13 +150,6 @@ vim.lsp.config('lua_ls', {
     },
   },
 })
--- lspconfig.lua_ls.setup({
---   on_attach = function(client, bufnr)
---     lsp_format.on_attach(client)
---     on_attach(client, bufnr)
---   end
--- })
-
 vim.lsp.enable('lua_ls')
 
 -- Rust
@@ -177,9 +170,6 @@ vim.lsp.config('rust_analyzer', {
     }
   }
 })
--- lspconfig.rust_analyzer.setup({
---   on_attach = on_attach,
--- })
 vim.lsp.enable('rust_analyzer')
 
 -- Go
@@ -201,21 +191,6 @@ vim.lsp.config('gopls', {
 })
 vim.lsp.enable('gopls')
 
--- lspconfig.gopls.setup {
---   on_attach = function(client, bufnr)
---     --   vim.api.nvim_create_autocmd("BufWritePre", {
---     --     buffer = bufnr,
---     --     callback = function()
---     --       vim.lsp.buf.code_action({
---     --         context = { only = { "source.organizeImports" } },
---     --         apply = true,
---     --       })
---     --     end,
---     --   })
---
---     on_attach(client, bufnr)
---   end,
-
 -- Terraform
 vim.lsp.config('terraformls', {
   filetypes = { 'terraform', 'tf' },
@@ -235,7 +210,8 @@ vim.lsp.config('yamlls', {
     yaml = {
       keyOrdering = false,
       schemas = {
-        ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "docker-compose.yml",
+        ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] =
+        "docker-compose.yml",
         ["https://json.schemastore.org/chart.json"] = "Chart.yaml"
       }
     }
